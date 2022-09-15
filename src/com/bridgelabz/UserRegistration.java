@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-    public void validFirstName(){
+    public void firstName(){
         Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
 
         Scanner scanner = new Scanner(System.in);
@@ -19,8 +19,24 @@ public class UserRegistration {
             System.out.println("Invalid Firstname");
     }
 
+    public void lastName(){
+        Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Lastname: ");
+        String lastName = scanner.next();
+
+        Matcher match = pattern.matcher(lastName);
+        if (match.matches())
+            System.out.println("Lastname is Valid");
+        else
+            System.out.println("Invalid Lastname");
+    }
+
     public static void main(String[] args) {
         UserRegistration userRegistration = new UserRegistration();
-        userRegistration.validFirstName();
+        userRegistration.firstName();
+        System.out.println();
+        userRegistration.lastName();
     }
 }
