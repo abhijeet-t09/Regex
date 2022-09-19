@@ -63,7 +63,7 @@ public class UserRegistration {
     }
 
     void checkPassword(){
-        Pattern pattern = Pattern.compile("^[a-z]{8,}$");
+        Pattern pattern = Pattern.compile("^(?=.*[A-Z])(?=.*[a-z]).{8,}$");
         System.out.println("Enter user Password");
 
         String password = scanner.nextLine();
@@ -77,18 +77,12 @@ public class UserRegistration {
 
     public static void main(String[] args) {
         UserRegistration userRegistration = new UserRegistration();
-        userRegistration.checkFirstName();
 
-        System.out.println();
-        userRegistration.checkLastName();
+//        userRegistration.checkFirstName();
+//        userRegistration.checkLastName();
+//        userRegistration.checkEmailId();
+//        userRegistration.checkPhoneNumber();
 
-        System.out.println();
-        userRegistration.checkEmailId();
-
-        System.out.println();
-        userRegistration.checkPhoneNumber();
-
-        System.out.println();
         userRegistration.checkPassword();
 
     }
