@@ -5,10 +5,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-    public void firstName(){
-        Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
 
-        Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
+
+    void firstName(){
+        Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
 
         System.out.print("Enter Firstname: ");
         String firstName = scanner.next();
@@ -20,10 +21,8 @@ public class UserRegistration {
             System.out.println("Invalid Firstname");
     }
 
-    public void lastName(){
+    void lastName(){
         Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
-
-        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter Last Name: ");
         String lastName = scanner.next();
@@ -35,12 +34,11 @@ public class UserRegistration {
             System.out.println("Invalid Last Name");
     }
 
-    public void emailId(){
+    void emailId(){
         Pattern pattern = Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
 
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter user email ");
-        scanner.next();
+        String emailID = scanner.next();
         String email = scanner.nextLine();
 
         Matcher match = pattern.matcher(email);
@@ -48,6 +46,20 @@ public class UserRegistration {
             System.out.println("Email-ID is Valid");
         else
             System.out.println("Invalid Email-ID");
+    }
+
+    void phoneNumber(){
+        Pattern pattern = Pattern.compile("^[9][1]\s[6-9][0-9]{9}$");
+        System.out.println("Enter user Phone number");
+
+        String phoneNumber = scanner.next();
+
+        Matcher match = pattern.matcher(phoneNumber);
+        if (match.matches())
+            System.out.println("Phone Number is Valid");
+        else
+            System.out.println("Invalid Phone Number");
+
     }
 
     public static void main(String[] args) {
@@ -58,7 +70,10 @@ public class UserRegistration {
         userRegistration.lastName();
 
         System.out.println();
-        userRegistration.emailId();;
+        userRegistration.emailId();
+
+        System.out.println();
+        userRegistration.phoneNumber();
 
     }
 }
