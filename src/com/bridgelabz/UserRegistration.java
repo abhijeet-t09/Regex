@@ -8,7 +8,7 @@ public class UserRegistration {
 
     Scanner scanner = new Scanner(System.in);
 
-    void firstName(){
+    void checkFirstName(){
         Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
 
         System.out.print("Enter Firstname: ");
@@ -21,7 +21,7 @@ public class UserRegistration {
             System.out.println("Invalid Firstname");
     }
 
-    void lastName(){
+    void checkLastName(){
         Pattern pattern = Pattern.compile("^[A-Z]+[a-zA-Z]{2,}[0-9]*$");
 
         System.out.print("Enter Last Name: ");
@@ -34,7 +34,7 @@ public class UserRegistration {
             System.out.println("Invalid Last Name");
     }
 
-    void emailId(){
+    void checkEmailId(){
         Pattern pattern = Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
 
         System.out.println("Enter user email ");
@@ -48,7 +48,7 @@ public class UserRegistration {
             System.out.println("Invalid Email-ID");
     }
 
-    void phoneNumber(){
+    void checkPhoneNumber(){
         Pattern pattern = Pattern.compile("^[9][1]\s[6-9][0-9]{9}$");
         System.out.println("Enter user Phone number");
 
@@ -62,18 +62,34 @@ public class UserRegistration {
 
     }
 
+    void checkPassword(){
+        Pattern pattern = Pattern.compile("^[a-z]{8,}$");
+        System.out.println("Enter user Password");
+
+        String password = scanner.nextLine();
+
+        Matcher match = pattern.matcher(password);
+        if (match.matches())
+            System.out.println("password is Valid");
+        else
+            System.out.println("password is InValid");
+    }
+
     public static void main(String[] args) {
         UserRegistration userRegistration = new UserRegistration();
-        userRegistration.firstName();
+        userRegistration.checkFirstName();
 
         System.out.println();
-        userRegistration.lastName();
+        userRegistration.checkLastName();
 
         System.out.println();
-        userRegistration.emailId();
+        userRegistration.checkEmailId();
 
         System.out.println();
-        userRegistration.phoneNumber();
+        userRegistration.checkPhoneNumber();
+
+        System.out.println();
+        userRegistration.checkPassword();
 
     }
 }
